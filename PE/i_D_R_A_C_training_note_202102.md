@@ -1,5 +1,19 @@
 # iDRAC training note
-
+```
+start on 2021/02
+present date: 2021/03/29
+```
+--- 
+## Referance  
+[team file server] - (\\serverip\public\00-Projects\02-DELL\88-Common_ForDELL\IDrac Training Video\iDRAC Training)   
+    
+[note in github] - (https://github.com/aaarrvhh/SOP_in_fJOB/blob/main/PE/i_D_R_A_C_training_note_202102.md)
+    
+[iDRAC Training video status sheet] - (https://docs.google.com/spreadsheets/d/arv12C9t6jBy2LmYTBjkPxTO3k8IH2NAuom3YTljcYB38Mg/edit#gid=2059105827)
+    
+[this document with picture] - (https://docs.google.com/document/d/1tNUqX1nVq2aV3b3tU79nrsWaRE5zmq7Tl-J3lDEvywUarv/edit?usp=sharing)
+    
+--- 
 ## NFT(Longevity, Scalability, Performance, Usability Test)
 > reference
 > - NFT20201021.mp4 - presentation base on “NFT Training.pptx”
@@ -47,7 +61,7 @@ NON-FUNCTIONAL TESTING is defined as a type of Software testing to check non-fun
 
 RTCEM managed storage controllers, NVMe, BOSS.  
 
-execute `Debugcontrol -l 10 -s 5 -s 10 -o 3` which can be collected for storeage logs (RTCEM and MCTP).
+execute `Debugcontrol -l 10 -s 5 -s 10 -o 3` which can be collected for storage logs (RTCEM and MCTP).
 press `F12 key` for Chrome browser when meet the WEB GUI relative issues. get the HAR `HTTP Archive format` file’s content to DF.
 PERC log: there are two interfaces that are TTY and I2C. it can get the logs through both interfaces. 
 
@@ -64,7 +78,32 @@ PERC log: there are two interfaces that are TTY and I2C. it can get the logs thr
 
 `login.axon.dell.labs.net/login`  -> `workflow.axon.dell.labs.net`
 Axon - Marketplace  
-
+    
+In this video, login to Axon web -> found “iDRAC BDC Automation” by searching in Marketplace → after execute “iDRAC BDC Automation”,  introduce how to configure and start workflow for running the automation test.     
+    
+in the “start workflow” page.    
+    
+field “component_name”    
+select function like as redfish / racadm  
+    
+field “email_addr”  
+can multi email address and separate by “ , ”    
+    
+field “input_file”
+the config.ini file can be downloaded from the “start workflow” page.   
+It shows the configuration parameter for the testing environment. and upload this config.ini file when login Web. 
+    
+Before executing “start workflow”, it will need to make sure the system will not stop. therefore, check below to disable whose function could make system stop.   
+- 進iDRAC web 使用 virtual concole 需要 database license    
+- 裡面有提到要進server  去reboot system 然後進F2 BIOS step menu.   
+`System BIOS -> Miscellaneous Settings -> F1/F2 Prompt on Error -> set to Disabled`   
+- 用talend API tester (chrome extention) 來看lifecycle controller status is Enable via redfish.   
+PATCH - `{“Attributes”:{”Lockdown.1.SystemLockdown”:“Disabled”}}`   
+    
+after start workflow   
+The first page will show workflow in here.   
+After the automation is finished, the user will receive the mail with a URI link for the result.
+execute console -> 可以看到 command line 正執行到哪.   
 
 ---
 ## Automation for LC RE - ADC
@@ -73,11 +112,16 @@ Axon - Marketplace
 
 >>>> the web link can not be entry
 
+LC - ifecycle Controller  
+RE - 
+
 
 ---
 ## Automation for PI - ADC
 > reference
 > - ODM Platform Infra and Power training.pdf
+
+PI - Platform Infrastructure   
 
 >>> notes  
 >>>> the web link can not be entry  
@@ -114,6 +158,14 @@ Axon - Marketplace
 
 ---
 ## Automation for Telemetry
+
+
+
+
+---   
+---   
+# END of FILE
+---   
 
 
 
