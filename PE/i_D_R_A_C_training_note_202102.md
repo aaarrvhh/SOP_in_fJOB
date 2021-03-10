@@ -79,13 +79,25 @@ PERC log: there are two interfaces that are TTY and I2C. it can get the logs thr
 `login.axon.dell.labs.net/login`  -> `workflow.axon.dell.labs.net`
 Axon - Marketplace  
     
+
+
+
 In this video, login to Axon web -> found “iDRAC BDC Automation” by searching in Marketplace → after execute “iDRAC BDC Automation”,  introduce how to configure and start workflow for running the automation test.     
     
-in the “start workflow” page.    
+
+
+
+
+
+in the “start workflow” page. uses needs to select or fill some fields before start.   
     
+
+
 field “component_name”    
 select function like as redfish / racadm  
     
+
+
 field “email_addr”  
 can multi email address and separate by “ , ”    
     
@@ -97,24 +109,53 @@ Before executing “start workflow”, it will need to make sure the system will
 - 進iDRAC web 使用 virtual concole 需要 database license    
 - 裡面有提到要進server  去reboot system 然後進F2 BIOS step menu.   
 `System BIOS -> Miscellaneous Settings -> F1/F2 Prompt on Error -> set to Disabled`   
+
+
+
 - 用talend API tester (chrome extention) 來看lifecycle controller status is Enable via redfish.   
 PATCH - `{“Attributes”:{”Lockdown.1.SystemLockdown”:“Disabled”}}`   
     
+
+
+
+ 
+After the automation is finished, the user will receive the mail with a URI link for the result.   
+
+
+
+Download the log file from the DUFExcution.   
+
+
+
+
+
+
 after start workflow   
-The first page will show workflow in here.   
-After the automation is finished, the user will receive the mail with a URI link for the result.
+The first page will show workflow in here.  
 execute console -> 可以看到 command line 正執行到哪.   
+
+
+
+
+
+Dashboard - 可以看正在excution的workflow status - 也可以click那個時間進入workflow的畫面.
+
+
+
+
+
 
 ---
 ## Automation for LC RE - ADC
 > reference
 > - ODM Overview LCRE Base-NIC-SA.pdf
 
->>>> the web link can not be entry
+>>>> the workflow web link can not be entry
 
 LC - ifecycle Controller  
 RE - 
 
+Introduce test prerequisites equipment.   
 
 ---
 ## Automation for PI - ADC
@@ -124,7 +165,7 @@ RE -
 PI - Platform Infrastructure   
 
 >>> notes  
->>>> the web link can not be entry  
+>>>> the workflow web link can not be entry  
 
 ##### Introduce the equipment and environment..  
 - PDU -power distribution units  
@@ -161,8 +202,54 @@ PI - Platform Infrastructure
 
 
 
-
+---
+# Below is not for presentation. self only.   
 ---   
+## iDRAC Architecture & Syst. Mgmt. (I-band & OOB)+Interface description in Backup
+> reference
+> iDRAC9 Architecture.pptx
+
+##### iDRAC FW Architecture    
+
+##### iDRAC Interface    
+
+
+##### iDRAC Boot Process
+- A 4MB SPI device holds the secure boot block, UBOOT images along with  persistent storage, LC Logs Etc. 
+- A NAND (eMMC) stores the Linux images along with lifecycle controller partitions.
+
+
+
+##### iDRAC Networking
+
+
+
+
+
+
+---  
+## RSA Setup
+> reference
+> RSA Setup.docx
+
+There is a link in this documentation. this link provide the ova image for “RSA AM server VM with OVA template”
+This documentation introduces how to configure the RSA secure and enable SecureID. 
+
+---  
+## Quick sync setup
+> reference
+> iDRAC Quick Sync Feature.docx
+
+the user's mobile can connect to iDRAC via Bluetooth.    
+This documentation introduces how to set up the connection.
+
+
+
+
+
+
+
+
 ---   
 # END of FILE
 ---   
