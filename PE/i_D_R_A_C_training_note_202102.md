@@ -106,7 +106,7 @@ the config.ini file can be downloaded from the “start workflow” page.
 It shows the configuration parameter for the testing environment. and upload this config.ini file when login Web. 
     
 Before executing “start workflow”, it will need to make sure the system will not stop. therefore, check below to disable whose function could make system stop.   
-- 進iDRAC web 使用 virtual concole 需要 database license    
+- 進iDRAC web 使用 virtual concole 需要 datacenter license    
 - 裡面有提到要進server  去reboot system 然後進F2 BIOS step menu.   
 `System BIOS -> Miscellaneous Settings -> F1/F2 Prompt on Error -> set to Disabled`   
 
