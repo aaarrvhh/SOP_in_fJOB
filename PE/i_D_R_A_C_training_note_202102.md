@@ -103,6 +103,8 @@ Enclosure operations: Set Asset Tag, Set Asset Name
     It has autoconfig non-RAID which can be configured from HII.
 -- All PERCs have autoconfig RAID 0 option from HII.
 ```
+>> notes:
+>>> VD (Virtual Disk), PD (Pyshical Disk)
 
 - log required
 ```
@@ -111,10 +113,10 @@ Enclosure operations: Set Asset Tag, Set Asset Name
     get the HAR `HTTP Archive format` file’s content to DF.   
 -- PERC log: there are two interfaces that are TTY and I2C. it can get the logs through both interfaces.    
 ```
-- reference documents
-[MCTP] (https://www.dmtf.org/sites/default/files/standards/documents/DSP0237_1.1.0.pdf)
-[PERC 10 UG]: (https://topics-cdn.dell.com/pdf/poweredge-rc-h740p_users-guide_en-us.pdf)
-[iDRAC user guide]: (https://topics-cdn.dell.com/pdf/idrachalo_en-us.pdf)
+- reference documents    
+[MCTP] (https://www.dmtf.org/sites/default/files/standards/documents/DSP0237_1.1.0.pdf)    
+[PERC 10 UG]: (https://topics-cdn.dell.com/pdf/poweredge-rc-h740p_users-guide_en-us.pdf)    
+[iDRAC user guide]: (https://topics-cdn.dell.com/pdf/idrachalo_en-us.pdf)    
 
 #### Managing  network devices
 
@@ -171,10 +173,10 @@ Policy on Network and Fibre Channel Adapters]   (https://downloads.dell.com/solu
 #### PCIe VDM
 ```
 -- iDRAC inventory of storage and network devices is via I2C channel which is of low bandwidth   
---- PCIe VDM enables iDRAC to use PCIe channel to inventory devices   
---- Attribute in iDRAC which can be enabled/disabled (#iDRAC.PCIeVDMEnable)    
---- When attribute is enabled, all devices which do not support PCIe VDM continue t use I2C channel.   
---- Few network vendors already support PCIe VDM.
+-- PCIe VDM enables iDRAC to use PCIe channel to inventory devices   
+-- Attribute in iDRAC which can be enabled/disabled (#iDRAC.PCIeVDMEnable)    
+-- When attribute is enabled, all devices which do not support PCIe VDM continue t use I2C channel.   
+-- Few network vendors already support PCIe VDM.
 ```
 
 >> notes: 
