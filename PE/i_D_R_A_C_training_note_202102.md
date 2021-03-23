@@ -29,23 +29,25 @@ NON-FUNCTIONAL TESTING is defined as a type of Software testing to check non-fun
 
 
 - Stress Test  
+```
 -- iDRAC stressed from multiple paths to ensure:  
---- Robustness.  
---- Availability and reliability.  
+  -- Robustness.  
+  -- Availability and reliability.  
 -- Stress executed for:  
---- All iDRAC interfaces (WSMAN, GUI/REST, RACADM, REDFISH, IPMI, SNMP)  
---- iDRAC firmware update.  
---- iDRAC Login.  
---- Server reboot and powercycle.  
---- iDRAC reboot.  
---- Network initialization.  
---- File export.  
---- Alert generation (LCLog, SNMP Trap, WSEvent, Redfish event)  
---- Serial/SOL stress.  
---- SCP stress.  
---- RAID create/delete stress.  
---- Stress from all interfaces simultaneously.  
---- Long duration stress.  
+  -- All iDRAC interfaces (WSMAN, GUI/REST, RACADM, REDFISH, IPMI, SNMP)  
+  -- iDRAC firmware update.  
+  -- iDRAC Login.  
+  -- Server reboot and powercycle.  
+  -- iDRAC reboot.  
+  -- Network initialization.  
+  -- File export.  
+  -- Alert generation (LCLog, SNMP Trap, WSEvent, Redfish event)  
+  -- Serial/SOL stress.  
+  -- SCP stress.  
+  -- RAID create/delete stress.  
+  -- Stress from all interfaces simultaneously.  
+  -- Long duration stress.  
+```
 
 - Scalability test :   
 >> notes:  
@@ -73,11 +75,16 @@ RTCEM managed storage controllers, NVMe, BOSS, HBA, PERC.
 
 - Operations:
 ```
-Controller operations : Reset, clear/import foreign config, change controller mode, change controller attributes, create/modify/delete security key, discard preserved cache, set boot VD, start/stop patrol read, unlock secured foreign drives    
+Controller operations : Reset, clear/import foreign config, change controller mode, 
+    change controller attributes, create/modify/delete security key, 
+    discard preserved cache, set boot VD, start/stop patrol read, unlock secured foreign drives    
 
-VD operations : Create VD, Delete VD, RLM, OCE, Fast/Full Init, Cancel Init, Cancel BGI, Check consistency, Cancel Check consistency, Rename VD, assign DHS, encrypt VD, change VD cache policies,    
+VD operations : Create VD, Delete VD, RLM, OCE, Fast/Full Init, Cancel Init, Cancel BGI,
+    Check consistency, Cancel Check consistency, Rename VD, assign DHS, 
+    encrypt VD, change VD cache policies,    
 
-PD operations: assign GHS, convert to RAID/non RAID, rebuild, cancel rebuild, offline/online, cryptographic erase, replace PD    
+PD operations: assign GHS, convert to RAID/non RAID, rebuild, cancel rebuild,
+    offline/online, cryptographic erase, replace PD    
 
 Enclosure operations: Set Asset Tag, Set Asset Name    
 ```
@@ -87,16 +94,21 @@ Enclosure operations: Set Asset Tag, Set Asset Name
 -- PERC external controllers supports redundant path.
 -- H3XX does not have battery. It also does not support RAID 6 and 60.
 -- Any ready disk inserted to backplane connected to H330 will be detected as NonRAID. For other controllers, the state will be Ready.
--- PERC 10 introduced the concept of profiles. There are 2 profiles: PD64 and PD240. H740 supports only the PD64 profile. H745P MX supports only the PD240 profile. The H840 supports both PD64 and PD240. PD64 profile means a max of 64 PD are supported and 64 VD can be created. PD240 means a maximum of 240 PDs are supported and 240 VDs can be created
+-- PERC 10 introduced the concept of profiles. There are 2 profiles: PD64 and PD240. H740 supports only the PD64 profile. 
+    H745P MX supports only the PD240 profile. The H840 supports both PD64 and PD240. 
+    PD64 profile means a max of 64 PD are supported and 64 VD can be created. 
+    PD240 means a maximum of 240 PDs are supported and 240 VDs can be created
 -- 16 VDs can be created on 1 PD. 
--- PERC 9 has RAID and HBA modes. PERC 10 has RAID and eHBA modes. PERC 11 has no mode settings. It has autoconfig non-RAID which can be configured from HII.
+-- PERC 9 has RAID and HBA modes. PERC 10 has RAID and eHBA modes. PERC 11 has no mode settings. 
+    It has autoconfig non-RAID which can be configured from HII.
 -- All PERCs have autoconfig RAID 0 option from HII.
 ```
 
 - log required
 ```
 -- execute `Debugcontrol -l 10 -s 5 -s 10 -o 3` which can be collected for storage logs (RTCEM and MCTP).    
--- press `F12 key` for Chrome browser when meet the WEB GUI relative issues. get the HAR `HTTP Archive format` file’s content to DF.   
+-- press `F12 key` for Chrome browser when meet the WEB GUI relative issues. 
+    get the HAR `HTTP Archive format` file’s content to DF.   
 -- PERC log: there are two interfaces that are TTY and I2C. it can get the logs through both interfaces.    
 ```
 - reference documents
