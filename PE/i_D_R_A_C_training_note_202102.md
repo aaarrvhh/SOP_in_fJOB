@@ -286,7 +286,7 @@ Dashboard - 可以看正在excution的workflow status - 也可以click那個時�
 
 >>>> the workflow web link can not be entry
 
-LC - ifecycle Controller  
+LC - lifecycle Controller  
 RE - 
 
 >>> notes  
@@ -300,6 +300,14 @@ RE -
 >>>> [Fibre Channel Host Bus Adapters for Dell PowerEdge Servers]   
 >>>> (http://legislacao.sema.ma.gov.br/arquivos/1481047547600.pdf)   
 >>>>  在這份裡面有說一些 dell 的 term.
+>    
+> reference   
+>> LC RE Overview.pptx   
+>> LC-RE Overview & HII-20200911-1.mp4   
+>> LC-RE Overview & HII-20200911-2.mp4   
+>> LC-UI_Log.docx   
+
+
 
 ---
 ## Automation for PI - ADC
@@ -339,12 +347,54 @@ PI - Platform Infrastructure
 ##### example failures:
 - script should handle error cases cleanly.   
 
-
-
 ---
 ## Automation for Telemetry
 
+>>>
+>>> notes
+>>> 
+>>>> [Telemetry Streaming with iDRAC9—What you Need to Get Started]    
+>>>> (https://downloads.dell.com/manuals/common/dell-emc-idrac9-telemetry-streaming-basics.pdf)    
+>>>
+>>>> [Data Telemetry Streaming with iDRAC9]  
+>>>> (https://www.youtube.com/watch?v=1zzMuyIDPuo)  
+>>>> 這個youtube是說 當資料量大的話.可以透過xx演算法去預測/估算. server的 health / status 之類的.    
+>>> 
 
+
+```
+Telemetry overview
+- Telemetry streaming is an automated communications process by which measurements 
+  and other data are collected at remote or inaccessible points. With iDRAC9 4.0 Datacenter,
+   it is possible to stream a wide variety of metric reports from one or 
+  more PowerEdge servers to an ingress collector such as Splunk or ELK Stack. 
+  These and other tools can then perform remote server monitoring and analysis. 
+- The following diagram shows the basic elements used for Telemetry Streaming Analytics
+
+##### figure: Telemetry Streaming Analytics
+
+
+Terms and definitions
+- Telemetry report: 
+  -- A telemetry report is a DMTF telemetry specification-compliant JSON document 
+     that consists of metric names, metric values, and timestamps.
+- SSE: 
+  -- Server-sent events allow for a client to open a web service connection 
+      which can continuously push data to the client as needed.
+- Remote syslog (RSyslog): 
+  -- Remote syslog implements the basic syslog protocol, and extends it with 
+     content based filtering, rich filtering capabilities, and flexible configuration options.
+- EEMI: 
+  -- The Event and Error Message Information is a reference guide which lists 
+      the messages in the user interface, command-line interface, and log files. 
+      Messages are displayed or stored as a result of user action, automatic event occurrence,
+      or for data logging purposes.
+
+Prerequisites
+- The Telemetry feature is available on iDRAC9 firmware version 4.00.00.00 or above 
+   and requires a Datacenter license.
+
+```
 
 ---
 # Below is not for presentation. self only.   
