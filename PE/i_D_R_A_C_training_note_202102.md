@@ -183,7 +183,7 @@ Policy on Network and Fibre Channel Adapters]   (https://downloads.dell.com/solu
 
 >>> notes
 >>>> MCTP PCIe Vendor Defined Message (VDM) Transport Binding Protocol
-##### picture: VDM vendor defined Message
+##### figure: VDM vendor defined Message
 
 
 
@@ -195,25 +195,27 @@ Policy on Network and Fibre Channel Adapters]   (https://downloads.dell.com/solu
 > - iDRAC automation-2020100803.mp4
 
 `login.axon.dell.labs.net/login`  -> `workflow.axon.dell.labs.net`
-Axon - Marketplace  
+Axon -> Marketplace  
     
+##### figure: 
 
 
 
 In this video, login to Axon web -> found “iDRAC BDC Automation” by searching in Marketplace → after execute “iDRAC BDC Automation”,  introduce how to configure and start workflow for running the automation test.     
+##### figure:   how to find iDRACBDCAutomation in Marketplace
+
+
+
+
+
+in the “start workflow” page. user needs to select or fill some fields before start.   
     
-
-
-
-
-
-in the “start workflow” page. uses needs to select or fill some fields before start.   
-    
+##### figure:  iDRACBDCAutomation’s entry page in Axon. 
 
 
 field “component_name”    
 select function like as redfish / racadm  
-    
+##### figure:   
 
 
 field “email_addr”  
@@ -227,22 +229,23 @@ Before executing “start workflow”, it will need to make sure the system will
 - 進iDRAC web 使用 virtual concole 需要 datacenter license    
 - 裡面有提到要進server  去reboot system 然後進F2 BIOS step menu.   
 `System BIOS -> Miscellaneous Settings -> F1/F2 Prompt on Error -> set to Disabled`   
-
+##### figure: Disable “F1/F2 Prompt on Error “
 
 
 - 用talend API tester (chrome extention) 來看lifecycle controller status is Enable via redfish.   
 PATCH - `{“Attributes”:{”Lockdown.1.SystemLockdown”:“Disabled”}}`   
     
+##### figure: talend API tester   
 
 
 
  
 After the automation is finished, the user will receive the mail with a URI link for the result.   
-
+##### figure: dell’s mail
 
 
 Download the log file from the DUFExcution.   
-
+##### figure: DUFExcution
 
 
 
@@ -251,12 +254,13 @@ Download the log file from the DUFExcution.
 after start workflow   
 The first page will show workflow in here.  
 execute console -> 可以看到 command line 正執行到哪.   
-
+##### figure:  find out flow an status 
 
 
 
 
 Dashboard - 可以看正在excution的workflow status - 也可以click那個時間進入workflow的畫面.
+##### figure:  dashboard
 
 
 
@@ -328,18 +332,18 @@ PI - Platform Infrastructure
 > reference
 > iDRAC9 Architecture.pptx
 
-##### iDRAC FW Architecture    
+##### figure: iDRAC FW Architecture    
 
-##### iDRAC Interface    
+##### figure: iDRAC Interface    
 
 
-##### iDRAC Boot Process
+##### figure: iDRAC Boot Process
 - A 4MB SPI device holds the secure boot block, UBOOT images along with  persistent storage, LC Logs Etc. 
 - A NAND (eMMC) stores the Linux images along with lifecycle controller partitions.
 
 
 
-##### iDRAC Networking
+##### figure: iDRAC Networking
 
 
 
@@ -361,7 +365,7 @@ This documentation introduces how to configure the RSA secure and enable SecureI
 
 the user's mobile can connect to iDRAC via Bluetooth.    
 This documentation introduces how to set up the connection.
-
+##### figure: iDRAC app in mobile.
 
 
 
