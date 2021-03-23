@@ -292,13 +292,14 @@ RE -
 >>> notes  
 >>>> Introduce test prerequisites equipment.   
 >>>
->>>> Remote Enablement
->>>> RE is a software module that runs on the iDRAC7 to collect information from various devices, such as a Fibre Channel HBA or NIC on a server. 
+>>>> Remote Enablement      
+>>>> RE is a software module that runs on the iDRAC7 to collect information from various devices, such as a Fibre Channel HBA or NIC on a server.    
 >>>> RE communicates with the Unified Extensible Firmware Interface (UEFI) on the PCI bus to get information about these devices, and then populates the HII populator that writes data to the Data Manager.   
 >>>> The RE module uses memory partitions on the iDRAC7 to save and store information before passing it on to the Data Manager.   
 >>>
 >>>> [Fibre Channel Host Bus Adapters for Dell PowerEdge Servers]   
 >>>> (http://legislacao.sema.ma.gov.br/arquivos/1481047547600.pdf)   
+>>>>  在這份裡面有說一些 dell 的 term.
 
 ---
 ## Automation for PI - ADC
