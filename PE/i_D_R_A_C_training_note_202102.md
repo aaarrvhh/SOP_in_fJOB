@@ -50,9 +50,10 @@ NON-FUNCTIONAL TESTING is defined as a type of Software testing to check non-fun
 ```
 
 - Scalability test :   
->> notes:  
->>> Vertical Scaling : single blade v.s. rack  
->>> Horizontal Scaling : more rack or more single blade on the same network/ power environment. added more users in a system. 
+>>> notes  
+>>>> Vertical Scaling : single blade v.s. rack  
+>>>> Horizontal Scaling : more rack or more single blade on the same network/ power environment. added more users in a system. 
+>>>>
 
 - Longevity Test : leave the system / function in an idle state and keep it alive through 2~3 weeks.  
 
@@ -64,14 +65,14 @@ NON-FUNCTIONAL TESTING is defined as a type of Software testing to check non-fun
 #### Managing  storage devices
 RTCEM managed storage controllers, NVMe, BOSS, HBA, PERC.    
 
->> notes:  
->>
->>> Boot Optimized Server Storage (BOSS)  :
->>>> Dell has developed its BOSS for the line of servers called Dell PowerEdge. The idea behind it was to create a hardware RAID, the RAID 1 configuration, on a budget.
->>>> RAID 1 is a very simple RAID configuration which makes a complete mirror of a drive. It does not increase performance, but it serves as a backup.
->>>> Dell provides this mirroring for the drive where the OS is installed. If something happens to the OS drive, there is a backup that continues operating without any problems.
->>>> This comes from the consumers, who wanted a separate hardware controller for that purpose.
->>>> This is a common desire of companies that implement SDS – Software-Defined Storage and those with HCI – Hyper-Converged Infrastructure. It is good for application data.
+>>> notes  
+>>>
+>>>> Boot Optimized Server Storage (BOSS)  :    
+>>>> Dell has developed its BOSS for the line of servers called Dell PowerEdge. The idea behind it was to create a hardware RAID, the RAID 1 configuration, on a budget.    
+>>>> RAID 1 is a very simple RAID configuration which makes a complete mirror of a drive. It does not increase performance, but it serves as a backup.    
+>>>> Dell provides this mirroring for the drive where the OS is installed. If something happens to the OS drive, there is a backup that continues operating without any problems.    
+>>>> This comes from the consumers, who wanted a separate hardware controller for that purpose.    
+>>>> This is a common desire of companies that implement SDS – Software-Defined Storage and those with HCI – Hyper-Converged Infrastructure. It is good for application data.    
 
 - Operations:
 ```
@@ -88,6 +89,9 @@ PD operations: assign GHS, convert to RAID/non RAID, rebuild, cancel rebuild,
 
 Enclosure operations: Set Asset Tag, Set Asset Name    
 ```
+>> notes:
+>>> VD (Virtual Disk), PD (Pyshical Disk)
+
 - Key callouts
 ```
 -- 12GBps SAS does not support multipath, so ensure only 1 cable connected from controller to enclosure.
@@ -103,8 +107,6 @@ Enclosure operations: Set Asset Tag, Set Asset Name
     It has autoconfig non-RAID which can be configured from HII.
 -- All PERCs have autoconfig RAID 0 option from HII.
 ```
->> notes:
->>> VD (Virtual Disk), PD (Pyshical Disk)
 
 - log required
 ```
@@ -154,8 +156,8 @@ Lifecycle Controller]       (https://downloads.dell.com/solutions/dell-managemen
 their relationship to iDRAC with Lifecycle
 Controller]      (https://downloads.dell.com/manuals/all-products/esuprt_software/esuprt_it_ops_datcentr_mgmt/dell-management-solution-resources_white-papers_en-us.pdf)    
 
->> notes:
->> 這些文件是列出網路卡跟每個platform的support.
+>>> notes
+>>>> 這些文件是列出網路卡跟每個platform的support.    
 
 #### Virtual Address Management
 
@@ -166,9 +168,9 @@ Controller]      (https://downloads.dell.com/manuals/all-products/esuprt_softwar
 [Optimizing I/O Identity and Applying Persistence
 Policy on Network and Fibre Channel Adapters]   (https://downloads.dell.com/solutions/general-solution-resources/White%20Papers/13G_IO_IOOpt_Persistence_Reviewed_WhitePaper_May2015.pdf)      
 
->> notes:
->>> https://www.dell.com/support/manuals/zh-tw/idrac9-lifecycle-controller-v3.3-series/idrac_3.30.30.30_ug/dynamic-configuration-of-virtual-addresses,-initiator,-and-storage-target-settings?guid=guid-7c85f407-4349-4f8a-b961-3537ad7c1b60&lang=en-us
->>> dell的user guide之類的網頁.也在說VAM相關的. 看起來比 power pointer的內容還要多
+>>> notes
+>>>> https://www.dell.com/support/manuals/zh-tw/idrac9-lifecycle-controller-v3.3-series/idrac_3.30.30.30_ug/dynamic-configuration-of-virtual-addresses,-initiator,-and-storage-target-settings?guid=guid-7c85f407-4349-4f8a-b961-3537ad7c1b60&lang=en-us
+>>>> dell的user guide之類的網頁.也在說VAM相關的. 看起來比 power pointer的內容還要多
 
 #### PCIe VDM
 ```
@@ -179,8 +181,8 @@ Policy on Network and Fibre Channel Adapters]   (https://downloads.dell.com/solu
 -- Few network vendors already support PCIe VDM.
 ```
 
->> notes: 
->>> MCTP PCIe Vendor Defined Message (VDM) Transport Binding Protocol
+>>> notes
+>>>> MCTP PCIe Vendor Defined Message (VDM) Transport Binding Protocol
 ##### picture: VDM vendor defined Message
 
 
@@ -271,7 +273,8 @@ Dashboard - 可以看正在excution的workflow status - 也可以click那個時�
 LC - ifecycle Controller  
 RE - 
 
-Introduce test prerequisites equipment.   
+>>> notes  
+>>>> Introduce test prerequisites equipment.   
 
 ---
 ## Automation for PI - ADC
