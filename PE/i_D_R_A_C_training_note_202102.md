@@ -67,6 +67,10 @@ RTCEM managed storage controllers, NVMe, BOSS, HBA, PERC.
 
 >>> notes  
 >>>
+>>>> Real-Time Configuration Enablement Management
+>>>> RT-CEM is a software module that handles individual parameters and real-time notifications from a device, such as a Fibre Channel HBA or NIC.   
+>>>> RT-CEM runs on the iDRAC7 and uses an i2C bus to communicate with the device, and then directly writes to the HII populator that writes data to the Data Manager.  
+>>>
 >>>> Boot Optimized Server Storage (BOSS)  :    
 >>>> Dell has developed its BOSS for the line of servers called Dell PowerEdge. The idea behind it was to create a hardware RAID, the RAID 1 configuration, on a budget.    
 >>>> RAID 1 is a very simple RAID configuration which makes a complete mirror of a drive. It does not increase performance, but it serves as a backup.    
@@ -169,7 +173,7 @@ Controller]      (https://downloads.dell.com/manuals/all-products/esuprt_softwar
 Policy on Network and Fibre Channel Adapters]   (https://downloads.dell.com/solutions/general-solution-resources/White%20Papers/13G_IO_IOOpt_Persistence_Reviewed_WhitePaper_May2015.pdf)      
 
 >>> notes
->>>> https://www.dell.com/support/manuals/zh-tw/idrac9-lifecycle-controller-v3.3-series/idrac_3.30.30.30_ug/dynamic-configuration-of-virtual-addresses,-initiator,-and-storage-target-settings?guid=guid-7c85f407-4349-4f8a-b961-3537ad7c1b60&lang=en-us
+>>>> (https://www.dell.com/support/manuals/zh-tw/idrac9-lifecycle-controller-v3.3-series/idrac_3.30.30.30_ug/dynamic-configuration-of-virtual-addresses,-initiator,-and-storage-target-settings?guid=guid-7c85f407-4349-4f8a-b961-3537ad7c1b60&lang=en-us)    
 >>>> dell的user guide之類的網頁.也在說VAM相關的. 看起來比 power pointer的內容還要多
 
 #### PCIe VDM
@@ -184,6 +188,14 @@ Policy on Network and Fibre Channel Adapters]   (https://downloads.dell.com/solu
 >>> notes
 >>>> MCTP PCIe Vendor Defined Message (VDM) Transport Binding Protocol
 ##### figure: VDM vendor defined Message
+
+>>>
+>>>> [Overview of the NVMe Management Interface Specification]   
+>>>> (https://www.snia.org/sites/default/files/SDCIndia/2016/Presentations/NVMe-MI%20SDC%20India.pdf)    
+>>>> Storage Networking Industry Association    
+>>>> The SNIA is a non-profit global organization dedicated to developing standards and education programs to advance storage and information technology.   
+>>>
+
 
 
 
@@ -279,6 +291,14 @@ RE -
 
 >>> notes  
 >>>> Introduce test prerequisites equipment.   
+>>>
+>>>> Remote Enablement
+>>>> RE is a software module that runs on the iDRAC7 to collect information from various devices, such as a Fibre Channel HBA or NIC on a server. 
+>>>> RE communicates with the Unified Extensible Firmware Interface (UEFI) on the PCI bus to get information about these devices, and then populates the HII populator that writes data to the Data Manager.   
+>>>> The RE module uses memory partitions on the iDRAC7 to save and store information before passing it on to the Data Manager.   
+>>>
+>>>> [Fibre Channel Host Bus Adapters for Dell PowerEdge Servers]   
+>>>> (http://legislacao.sema.ma.gov.br/arquivos/1481047547600.pdf)   
 
 ---
 ## Automation for PI - ADC
