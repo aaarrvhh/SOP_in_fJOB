@@ -358,7 +358,7 @@ Part Replacement
 ```
 URI: /redfish/v1/UpdateService/Actions/UpdateService.SimpleUpdate
 HTTPS Method: POST
-Example Payload: {"ImageURI":"redfish/v1/UpdateService/FirmwareInventory/Available-25227-4.20.20.20__iDRAC.Embedded.1-1"}
+Example Payload: {"ImageURI":"redfish/v1/UpdateService/FirmwareInventory/Available-35332-4.20.20.20__iDRAC.Embedded.1-1"}
 ```
 
 
@@ -366,7 +366,7 @@ Example Payload: {"ImageURI":"redfish/v1/UpdateService/FirmwareInventory/Availab
 ```
 URI: /redfish/v1/Managers/iDRAC.Embedded.1/Actions/Oem/EID_674_Manager.ImportSystemConfiguration
 HTTPS Method: POST
-Example Payload: {"HostPowerState":"On","ShareParameters":{ "Target" :"ALL","IPAddress":"100.97.192.57", "ShareName":"cifs", "ShareType":"CIFS", "FileName":"scpexport.xml","Username":"administrator","Password":"dell@123"},"ShutdownType":"Forced”}
+Example Payload: {"HostPowerState":"On","ShareParameters":{ "Target" :"ALL","IPAddress":"xxx.xx.xx.xx", "ShareName":"cifs", "ShareType":"CIFS", "FileName":"scpexport.xml","Username":"administrator","Password":"pwd@123"},"ShutdownType":"Forced”}
 ```
 
 
