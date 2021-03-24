@@ -15,7 +15,7 @@ present date: 2021/03/29
     
 --- 
 ## NFT(Longevity, Scalability, Performance, Usability Test)
-> reference
+> reference company’s document    
 > - NFT20201021.mp4 - presentation base on “NFT Training.pptx”
 > - NFT Training.pptx
 
@@ -24,9 +24,9 @@ NON-FUNCTIONAL TESTING is defined as a type of Software testing to check non-fun
 -- response time:   
 -- memory: check/analyze for leaks.  
 
->> notes:  
->>> throughput / network / load-bearing
-
+>>> notes  
+>>>> throughput / network / load-bearing
+>>>
 
 - Stress Test  
 ```
@@ -59,7 +59,7 @@ NON-FUNCTIONAL TESTING is defined as a type of Software testing to check non-fun
 
 ---
 ## automation for IDRAC BDC Automation Training(Redfish/Wsman/Racadm/RTCEM)
-> reference  
+> reference company’s document      
 > - ODM Traning PPT- RTCEM.pptx
 
 #### Managing  storage devices
@@ -67,9 +67,9 @@ RTCEM managed storage controllers, NVMe, BOSS, HBA, PERC.
 
 >>> notes  
 >>>
->>>> Real-Time Configuration Enablement Management
->>>> RT-CEM is a software module that handles individual parameters and real-time notifications from a device, such as a Fibre Channel HBA or NIC.   
->>>> RT-CEM runs on the iDRAC7 and uses an i2C bus to communicate with the device, and then directly writes to the HII populator that writes data to the Data Manager.  
+>>>> Real-Time Configuration Enablement Management       
+>>>> RT-CEM is a software module that handles individual parameters and real-time notifications from a device, such as a Fibre Channel HBA or NIC.    
+>>>> RT-CEM runs on the iDRAC7 and uses an i2C bus to communicate with the device, and then directly writes to the HII populator that writes data to the Data Manager.   
 >>>
 >>>> Boot Optimized Server Storage (BOSS)  :    
 >>>> Dell has developed its BOSS for the line of servers called Dell PowerEdge. The idea behind it was to create a hardware RAID, the RAID 1 configuration, on a budget.    
@@ -77,6 +77,7 @@ RTCEM managed storage controllers, NVMe, BOSS, HBA, PERC.
 >>>> Dell provides this mirroring for the drive where the OS is installed. If something happens to the OS drive, there is a backup that continues operating without any problems.    
 >>>> This comes from the consumers, who wanted a separate hardware controller for that purpose.    
 >>>> This is a common desire of companies that implement SDS – Software-Defined Storage and those with HCI – Hyper-Converged Infrastructure. It is good for application data.    
+>>>
 
 - Operations:
 ```
@@ -93,8 +94,9 @@ PD operations: assign GHS, convert to RAID/non RAID, rebuild, cancel rebuild,
 
 Enclosure operations: Set Asset Tag, Set Asset Name    
 ```
->> notes:
->>> VD (Virtual Disk), PD (Pyshical Disk)
+>>> notes
+>>>> VD (Virtual Disk), PD (Pyshical Disk)
+>>>
 
 - Key callouts
 ```
@@ -162,6 +164,7 @@ Controller]      (https://downloads.dell.com/manuals/all-products/esuprt_softwar
 
 >>> notes
 >>>> 這些文件是列出網路卡跟每個platform的support.    
+>>>
 
 #### Virtual Address Management
 
@@ -172,9 +175,10 @@ Controller]      (https://downloads.dell.com/manuals/all-products/esuprt_softwar
 [Optimizing I/O Identity and Applying Persistence
 Policy on Network and Fibre Channel Adapters]   (https://downloads.dell.com/solutions/general-solution-resources/White%20Papers/13G_IO_IOOpt_Persistence_Reviewed_WhitePaper_May2015.pdf)      
 
->>> notes
+>>> notes    
 >>>> (https://www.dell.com/support/manuals/zh-tw/idrac9-lifecycle-controller-v3.3-series/idrac_3.30.30.30_ug/dynamic-configuration-of-virtual-addresses,-initiator,-and-storage-target-settings?guid=guid-7c85f407-4349-4f8a-b961-3537ad7c1b60&lang=en-us)    
 >>>> dell的user guide之類的網頁.也在說VAM相關的. 看起來比 power pointer的內容還要多
+>>>
 
 #### PCIe VDM
 ```
@@ -185,8 +189,10 @@ Policy on Network and Fibre Channel Adapters]   (https://downloads.dell.com/solu
 -- Few network vendors already support PCIe VDM.
 ```
 
->>> notes
+>>> notes    
 >>>> MCTP PCIe Vendor Defined Message (VDM) Transport Binding Protocol
+>>>
+
 ##### figure: VDM vendor defined Message
 
 >>>
@@ -201,7 +207,7 @@ Policy on Network and Fibre Channel Adapters]   (https://downloads.dell.com/solu
 
 ---
 ## Automation for iDRAC -ADC
-> reference  
+> reference company’s document      
 > - iDRAC automation-2020100801.mp4
 > - iDRAC automation-2020100802.mp4
 > - iDRAC automation-2020100803.mp4
@@ -281,10 +287,14 @@ Dashboard - 可以看正在excution的workflow status - 也可以click那個時�
 
 ---
 ## Automation for LC RE - ADC
-> reference
+> reference company’s document    
 > - ODM Overview LCRE Base-NIC-SA.pdf
 
 >>>> the workflow web link can not be entry
+
+All scripts first get the system info, then check if prerequisites are met. If any hardware is missing then the test case will be marked as invalid config.    
+If it is more of a configuration change, like if., Boot Mode needs to be UEFI and currently it is set to BIOS mode, scripts will set that prerequisites first, and then continue with execution.    
+
 
 LC - lifecycle Controller  
 RE - 
@@ -300,24 +310,64 @@ RE -
 >>>> [Fibre Channel Host Bus Adapters for Dell PowerEdge Servers]   
 >>>> (http://legislacao.sema.ma.gov.br/arquivos/1481047547600.pdf)   
 >>>>  在這份裡面有說一些 dell 的 term.
+>>>
 >    
-> reference   
+> reference company’s document       
 >> LC RE Overview.pptx   
 >> LC-RE Overview & HII-20200911-1.mp4   
 >> LC-RE Overview & HII-20200911-2.mp4   
+>    
+
+##### figure: LCRE- Solution architecture
+
+
+
+Update & Rollback     
+```
+1. The iDRAC allows you to remotely update the firmware of a single  & Multiple components 
+2. This method works when the server is running, however a restart is required for some firmware updates.
+3. Update types & Methods – 
+   -- Single DUP update
+   -- Install from repository
+   -- URI
+   -- SCP
+4. Supported methods – HTTPS,HTTP ,CIFS,NFS, FTP etc.
+5. Supported Firmware’s –Diags, Driver pack, ISM, Bios , Nic, Raid ,PSU Etc
+6. Rollback – Firmware's can be rolled back to previous versions. 
+        Both N and N-1 firmware's should be updated at least once in the system
+```
+Part Replacement     
+```
+1. Part Replacement provides automatic firmware and/or configuration updates 
+     when an old part or component is replaced by a new part of the same type. 
+2. The Collect System Inventory On Restart (CSIOR) attribute must be set to enable
+3. The PT firmware process gives you two options to select 
+   -- Match Firmware of Replaced Part
+   -- Allow Version Upgrade Only
+4. The PR configuration  process gives you two options to select from: 
+   -- Apply Always.  
+   -- Apply Only if Firmware Match
+```
+
+
+>     
+> reference company’s document       
 >> LC-UI_Log.docx   
+>    
+
 
 
 
 ---
 ## Automation for PI - ADC
-> reference
+> reference company’s document    
 > - ODM Platform Infra and Power training.pdf
 
 PI - Platform Infrastructure   
 
 >>> notes  
 >>>> the workflow web link can not be entry  
+>>>
 
 ##### Introduce the equipment and environment..  
 - PDU -power distribution units  
@@ -356,11 +406,6 @@ PI - Platform Infrastructure
 >>>> [Telemetry Streaming with iDRAC9—What you Need to Get Started]    
 >>>> (https://downloads.dell.com/manuals/common/dell-emc-idrac9-telemetry-streaming-basics.pdf)    
 >>>
->>>> [Data Telemetry Streaming with iDRAC9]  
->>>> (https://www.youtube.com/watch?v=1zzMuyIDPuo)  
->>>> 這個youtube是說 當資料量大的話.可以透過xx演算法去預測/估算. server的 health / status 之類的.    
->>> 
-
 
 ```
 Telemetry overview
@@ -395,12 +440,18 @@ Prerequisites
    and requires a Datacenter license.
 
 ```
+>>> notes
+>>>
+>>>> [Data Telemetry Streaming with iDRAC9]  
+>>>> (https://www.youtube.com/watch?v=1zzMuyIDPuo)  
+>>>> 這個youtube是說 當資料量大的話.可以透過xx演算法去預測/估算. server的 health / status/ security 之類的.    
+>>> 
 
 ---
 # Below is not for presentation. self only.   
 ---   
 ## iDRAC Architecture & Syst. Mgmt. (I-band & OOB)+Interface description in Backup
-> reference
+> reference company’s document    
 > iDRAC9 Architecture.pptx
 
 ##### figure: iDRAC FW Architecture    
@@ -412,6 +463,7 @@ Prerequisites
 - A 4MB SPI device holds the secure boot block, UBOOT images along with  persistent storage, LC Logs Etc. 
 - A NAND (eMMC) stores the Linux images along with lifecycle controller partitions.
 
+##### figure: iDRAC bootblock - uboot - kernel/rootfs
 
 
 ##### figure: iDRAC Networking
@@ -423,7 +475,7 @@ Prerequisites
 
 ---  
 ## RSA Setup
-> reference
+> reference company’s document    
 > RSA Setup.docx
 
 There is a link in this documentation. this link provide the ova image for “RSA AM server VM with OVA template”
@@ -431,7 +483,7 @@ This documentation introduces how to configure the RSA secure and enable SecureI
 
 ---  
 ## Quick sync setup
-> reference
+> reference company’s document    
 > iDRAC Quick Sync Feature.docx
 
 the user's mobile can connect to iDRAC via Bluetooth.    
