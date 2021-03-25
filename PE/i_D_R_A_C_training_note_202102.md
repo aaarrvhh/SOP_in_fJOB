@@ -289,18 +289,20 @@ Dashboard - 可以看正在excution的workflow status - 也可以click那個時�
 ## Automation for LC RE - ADC
 > reference company’s document    
 > - ODM Overview LCRE Base-NIC-SA.pdf
-
+>>> notes 
 >>>> the workflow web link can not be entry
+>>>    
 
 All scripts first get the system info, then check if prerequisites are met. If any hardware is missing then the test case will be marked as invalid config.    
 If it is more of a configuration change, like if., Boot Mode needs to be UEFI and currently it is set to BIOS mode, scripts will set that prerequisites first, and then continue with execution.    
 
-
-LC - lifecycle Controller  
-RE - 
-
 >>> notes  
 >>>> Introduce test prerequisites equipment.   
+>>>
+>>>> Dell Lifecycle Controller Remote Services includes WSMAN and iDRAC RESTful API with Redfish management interfaces. It helps to perform remote deployment, configuration, and updates integrated with Dell OpenManage Essentials and partner consoles.    
+>>>
+>>>> [Lifecycle Controller Version 3.21.21.21 Remote Services Quick Start Guide]   
+>>>> (https://www.dell.com/support/manuals/zh-tw/idrac9-lifecycle-controller-v3.2-series/idrac_3.21.21.21_lc_re_qsg/introduction?guid=guid-7c2a9abc-3872-4471-acf2-44e4dddbbf83&lang=en-us)   
 >>>
 >>>> Remote Enablement      
 >>>> RE is a software module that runs on the iDRAC7 to collect information from various devices, such as a Fibre Channel HBA or NIC on a server.    
@@ -312,75 +314,6 @@ RE -
 >>>>  在這份裡面有說一些 dell 的 term.
 >>>
 >    
-> reference company’s document       
->> LC RE Overview.pptx   
->> LC-RE Overview & HII-20200911-1.mp4   
->> LC-RE Overview & HII-20200911-2.mp4   
->    
-
-##### figure: LCRE- Solution architecture
-
-
-
-Update & Rollback     
-```
-1. The iDRAC allows you to remotely update the firmware of a single  & Multiple components 
-2. This method works when the server is running, however a restart is required for some firmware updates.
-3. Update types & Methods – 
-   -- Single DUP update
-   -- Install from repository
-   -- URI
-   -- SCP
-4. Supported methods – HTTPS,HTTP ,CIFS,NFS, FTP etc.
-5. Supported Firmware’s –Diags, Driver pack, ISM, Bios , Nic, Raid ,PSU Etc
-6. Rollback – Firmware's can be rolled back to previous versions. 
-        Both N and N-1 firmware's should be updated at least once in the system
-```
-Part Replacement     
-```
-1. Part Replacement provides automatic firmware and/or configuration updates 
-     when an old part or component is replaced by a new part of the same type. 
-2. The Collect System Inventory On Restart (CSIOR) attribute must be set to enable
-3. The PT firmware process gives you two options to select 
-   -- Match Firmware of Replaced Part
-   -- Allow Version Upgrade Only
-4. The PR configuration  process gives you two options to select from: 
-   -- Apply Always.  
-   -- Apply Only if Firmware Match
-```
-
-##### figure: Remote Racadm Firmware update through Network share     
-
-##### figure: Remote Racadm SCP-set operation    
-
-
-##### figure: SIMPLE UPDATE METHOD-     
-```
-URI: /redfish/v1/UpdateService/Actions/UpdateService.SimpleUpdate
-HTTPS Method: POST
-Example Payload: {"ImageURI":"redfish/v1/UpdateService/FirmwareInventory/Available-35332-4.20.20.20__iDRAC.Embedded.1-1"}
-```
-
-
-##### figure: SCP IMPORT    
-```
-URI: /redfish/v1/Managers/iDRAC.Embedded.1/Actions/Oem/EID_674_Manager.ImportSystemConfiguration
-HTTPS Method: POST
-Example Payload: {"HostPowerState":"On","ShareParameters":{ "Target" :"ALL","IPAddress":"xxx.xx.xx.xx", "ShareName":"cifs", "ShareType":"CIFS", "FileName":"scpexport.xml","Username":"administrator","Password":"pwd@123"},"ShutdownType":"Forced”}
-```
-
-
-
-
-
-
->     
-> reference company’s document       
->> LC-UI_Log.docx   
->    
-
-
-
 
 ---
 ## Automation for PI - ADC
@@ -514,6 +447,93 @@ the user's mobile can connect to iDRAC via Bluetooth.
 This documentation introduces how to set up the connection.
 ##### figure: iDRAC app in mobile.
 
+
+
+---   
+## LC - lifecycle Controller   
+
+> reference company’s document       
+>> LC RE Overview.pptx   
+>> LC-RE Overview & HII-20200911-1.mp4   
+>> LC-RE Overview & HII-20200911-2.mp4   
+>    
+
+##### figure: Embedded Management Using LC
+
+
+##### figure: LCRE- Solution architecture
+
+
+
+Update & Rollback     
+```
+1. The iDRAC allows you to remotely update the firmware of a single  & Multiple components 
+2. This method works when the server is running, however a restart is required for some firmware updates.
+3. Update types & Methods – 
+   -- Single DUP update
+   -- Install from repository
+   -- URI
+   -- SCP
+4. Supported methods – HTTPS,HTTP ,CIFS,NFS, FTP etc.
+5. Supported Firmware’s –Diags, Driver pack, ISM, Bios , Nic, Raid ,PSU Etc
+6. Rollback – Firmware's can be rolled back to previous versions. 
+        Both N and N-1 firmware's should be updated at least once in the system
+```
+
+Part Replacement     
+```
+1. Part Replacement provides automatic firmware and/or configuration updates 
+     when an old part or component is replaced by a new part of the same type. 
+2. The Collect System Inventory On Restart (CSIOR) attribute must be set to enable
+3. The PT firmware process gives you two options to select 
+   -- Match Firmware of Replaced Part
+   -- Allow Version Upgrade Only
+4. The PR configuration  process gives you two options to select from: 
+   -- Apply Always.  
+   -- Apply Only if Firmware Match
+```
+System Erase     
+```
+- The feature is to erase content, including user data, before a system is retired or repurposed.
+- The System Erase feature will be separated into 2 categories with user selectable content under each one. 
+ -- System
+  --- Lifecycle Controller Data
+  --- Embedded Applications
+  --- BIOS reset to default
+  --- iDRAC reset to default
+ -- Storage and Physical Disks
+  --- Hardware Cache
+  --- Vflash
+  --- Self-Encrypting drives
+  --- Non –SEDs physical disks
+```
+
+##### figure: Remote Racadm Firmware update through Network share     
+
+##### figure: Remote Racadm SCP-set operation    
+
+
+##### figure: SIMPLE UPDATE METHOD-     
+```
+URI: /redfish/v1/UpdateService/Actions/UpdateService.SimpleUpdate
+HTTPS Method: POST
+Example Payload: {"ImageURI":"redfish/v1/UpdateService/FirmwareInventory/Available-35332-4.20.20.20__iDRAC.Embedded.1-1"}
+```
+
+
+##### figure: SCP IMPORT    
+```
+URI: /redfish/v1/Managers/iDRAC.Embedded.1/Actions/Oem/EID_674_Manager.ImportSystemConfiguration
+HTTPS Method: POST
+Example Payload: {"HostPowerState":"On","ShareParameters":{ "Target" :"ALL","IPAddress":"xxx.xx.xx.xx", "ShareName":"cifs", "ShareType":"CIFS", "FileName":"scpexport.xml","Username":"administrator","Password":"pwd@123"},"ShutdownType":"Forced”}
+```
+
+
+
+>     
+> reference company’s document       
+>> LC-UI_Log.docx   
+>    
 
 
 
