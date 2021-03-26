@@ -168,8 +168,42 @@ Controller]      (https://downloads.dell.com/manuals/all-products/esuprt_softwar
 
 #### Virtual Address Management
 
+> reference company’s document   
+> - VAM20200910.mp4    
+>
+
+VAM can only be set using SCP.(modified xml file) If virtual addresses are set using SetAttribute command from CLI, then persistence policy will not work and after 1 reboot it will go back to default MAC. (default policy is non-persistence, default MAC is physical address)      
+
+##### figure: I/O Identity Optimization - Persistence Policy     
+
+`Configuration > System Settings > Hardware Settings > I/O Identity Optimization`
+      
 - Aux power        : Fab A/B Mezz , LOM , OCP3
 - non-Aux power : Fab C Mezz , PCIe
+
+##### figure:  只有set MAC 的mezz card of system      
+
+
+Some cards with virtual FIP, virtual WWN and virtual WWPM MAC attributes, the virtual WWN and virtual WWPN MAC attributes are automatically configured when you configure virtual FIP.           
+
+>>> notes:     
+>>>> 看起來只有 mezz nic 的部份才有 VAM 的東西.     
+>>>> 也不是每個 system 裡的 mezz card 都可以 support 功能.     
+
+##### figure: 只有set MAC 的mezz card of system     
+
+
+##### figure: get server configuration profile
+
+`Configuration > Server Configuration Profile > Export `
+      
+##### figure: XML of configure file       
+
+change Virtual MAC address in this file and save. then, import it back to server.      
+      
+##### figure: racadm getremoteservicestatus -> RT Status
+
+
 
 - reference documents
 [Optimizing I/O Identity and Applying Persistence
@@ -535,8 +569,23 @@ Example Payload: {"HostPowerState":"On","ShareParameters":{ "Target" :"ALL","IPA
 >> LC-UI_Log.docx   
 >    
 
+USC/RE logs       
+iDRAC logs      
+KCS logs       
+MaserTMP logs    
+```
+a. Type the command touch /flash/data0/oem_ps/masertmplog. This will create masertmp.log file under /tmp folder
+b. MaserTMP Log available in /tmp folder is copied into usb pendrive. 
+```  
+B&R logs - Backup & Restore          
+```
+[SH7757 ~]$ touch /flash/data0/oem_ps/br_debug    
+[SH7757 ~]$ touch /flash/data0/oem_ps/masertmplog    
+Execute the backup or restore operation    
+[SH7757 ~]$ cat /flash/data0/oem_ps/BR.log    
+[SH7757 ~]$ cat /tmp/maserdebug.log    
 
-
+```
 
 
 
