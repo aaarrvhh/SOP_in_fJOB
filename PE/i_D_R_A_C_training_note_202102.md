@@ -223,6 +223,10 @@ Policy on Network and Fibre Channel Adapters]   (https://downloads.dell.com/solu
 -- Few network vendors already support PCIe VDM.
 ```
 
+##### figure:  PCIe VDM support list.
+
+
+
 >>> notes    
 >>>> MCTP PCIe Vendor Defined Message (VDM) Transport Binding Protocol
 >>>
