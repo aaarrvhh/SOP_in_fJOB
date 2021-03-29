@@ -274,10 +274,10 @@ Policy on Network and Fibre Channel Adapters]   (https://downloads.dell.com/solu
 > - iDRAC automation-2020100801.mp4
 > - iDRAC automation-2020100802.mp4
 > - iDRAC automation-2020100803.mp4
-
-`login.axon.dell.labs.net/login`  -> `workflow.axon.dell.labs.net`
-Axon -> Marketplace  
-    
+       
+`login.axon.delllabs.net/login`  -> `workflow.axon.dell.labs.net`         
+Axon -> Marketplace      
+       
 ##### figure: 
 
 
