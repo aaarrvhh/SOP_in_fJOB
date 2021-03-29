@@ -277,13 +277,17 @@ Policy on Network and Fibre Channel Adapters]   (https://downloads.dell.com/solu
        
 `login.axon.delllabs.net/login`  -> `workflow.axon.dell.labs.net`         
 Axon -> Marketplace      
+      
+>>> notes     
+>>>>  axon 一個自動化測試的web gui.      
+>>>      
        
-##### figure: 
+##### figure: Axon web entry
 
 
 
 In this video, login to Axon web -> found “iDRAC BDC Automation” by searching in Marketplace → after execute “iDRAC BDC Automation”,  introduce how to configure and start workflow for running the automation test.     
-##### figure:   how to find iDRACBDCAutomation in Marketplace
+##### figure:   how to find iDRACBDCAutomation in Marketplace    
 
 
 
@@ -296,7 +300,7 @@ in the “start workflow” page. user needs to select or fill some fields befor
 
 field “component_name”    
 select function like as redfish / racadm  
-##### figure:   
+##### figure: component_name       
 
 
 field “email_addr”  
@@ -319,18 +323,7 @@ PATCH - `{“Attributes”:{”Lockdown.1.SystemLockdown”:“Disabled”}}`
 ##### figure: talend API tester   
 
 
-
- 
-After the automation is finished, the user will receive the mail with a URI link for the result.   
-##### figure: dell’s mail
-
-
-Download the log file from the DUFExcution.   
-##### figure: DUFExcution
-
-
-
-
+     
 
 after start workflow   
 The first page will show workflow in here.  
@@ -342,6 +335,16 @@ execute console -> 可以看到 command line 正執行到哪.
 
 Dashboard - 可以看正在excution的workflow status - 也可以click那個時間進入workflow的畫面.
 ##### figure:  dashboard
+
+
+ 
+After the automation is finished, the user will receive the mail with a URI link for the result.   
+##### figure: dell’s mail notification for automation test complete.    
+
+
+Download the log file from the DUFExcution.   
+##### figure: DUFExcution
+
 
 
 
