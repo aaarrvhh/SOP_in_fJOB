@@ -27,6 +27,9 @@ NON-FUNCTIONAL TESTING is defined as a type of Software testing to check non-fun
 >>> notes  
 >>>> throughput / network / load-bearing
 >>>
+     
+All the tests are run within the Lab network (10Gbps core) with maximum 1 hop.     
+     
 
 - Stress Test  
 ```
