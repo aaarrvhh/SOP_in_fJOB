@@ -48,15 +48,37 @@ NON-FUNCTIONAL TESTING is defined as a type of Software testing to check non-fun
   -- Stress from all interfaces simultaneously.  
   -- Long duration stress.  
 ```
-
+```
+- What to look after Stress Test    
+ -- GUI sluggish   
+ -- Memory Leak     
+ -- Critical SEL/LC logs    
+ -- Cores files    
+ -- iDRAC accessibility from all interfaces      
+```
 - Scalability test :   
+```
+- iDRAC’s  scalability tested for various features, e.g.    
+ -- Job Queue.   
+ -- Number of sessions.   
+ -- Max. configuration (Inventory and firmware update).   
+ -- SCP configuration scalability (Scaling number of attributes).    
+ -- Group Manager scalability.    
+```
 >>> notes  
 >>>> Vertical Scaling : single blade v.s. rack  
 >>>> Horizontal Scaling : more rack or more single blade on the same network/ power environment. added more users in a system. 
 >>>>
 
 - Longevity Test : leave the system / function in an idle state and keep it alive through 2~3 weeks.  
-
+```
+- Observing iDRAC’s behavior when it is utilized for a long duration (2-3 weeks).   
+ -- 1 x Many Console scenario: Automated inventory, monitoring and occasional 1 x 1 usage.   
+ -- 1 x 1 usage scenario: iDRAC systematic utilization for 2-3 weeks.    
+ -- System is left idle for a duration of 2-3 weeks.   
+ -- vConsole/vmedia continuous usage for 2-3 weeks.   
+ -- Continuous usage of SOL for 2-3 weeks.    
+```
 ---
 ## automation for IDRAC BDC Automation Training(Redfish/Wsman/Racadm/RTCEM)
 > reference company’s document      
@@ -230,7 +252,7 @@ Policy on Network and Fibre Channel Adapters]   (https://downloads.dell.com/solu
 >>> notes    
 >>>> MCTP PCIe Vendor Defined Message (VDM) Transport Binding Protocol
 >>>
-
+       
 ##### figure: VDM vendor defined Message
 
 >>>
